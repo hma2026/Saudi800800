@@ -5,8 +5,8 @@ body { min-height: 100vh; margin: 0; overflow-x: hidden; color: var(--cream); fo
 a { color: inherit; }
 
 .site-shell {
-  position: relative; isolation: isolate; display: grid; min-height: 100svh; place-items: center;
-  overflow-x: clip; padding: 34px 18px 34px;
+  position: relative; isolation: isolate; display: grid; min-height: 0; place-items: start center;
+  overflow-x: clip; padding: 34px 18px 30px;
   background: radial-gradient(circle at 50% 12%, #0b5a45 0%, #032b23 39%, #011813 76%);
 }
 .three-canvas { position: absolute; inset: 0; z-index: -3; }
@@ -121,7 +121,7 @@ a { color: inherit; }
 @keyframes float-logo { 0%,100% { transform: translateY(0) rotateY(-6deg) rotateX(-2deg); } 50% { transform: translateY(-12px) rotateY(7deg) rotateX(2deg); } }
 @keyframes rise-in { from { opacity: 0; transform: translateY(22px) translateZ(-20px) scale(.88); } to { opacity: 1; transform: translateY(0) translateZ(0) scale(1); } }
 @media (max-width: 600px) {
-  .site-shell { padding: 25px 12px 28px; }
+  .site-shell { min-height: 0; padding: 25px 12px 24px; }
   .experience { width: min(100%, 470px); }
   .social-stage { grid-template-columns: repeat(4, minmax(0,1fr)); gap: 11px 9px; padding: 18px 13px 24px; border-radius: 25px; }
   .button-face, .button-depth { border-radius: 15px; }

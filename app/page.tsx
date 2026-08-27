@@ -36,7 +36,10 @@ export default function Home() {
         </div>
         <header className="brand-copy">
           <h1 id="site-title">@SAUDi<span>800</span>800</h1>
-          <p>حساباتنا الرسمية</p>
+          <p className="official-label">حساباتنا الرسمية</p>
+          <p className="brand-tagline">
+            <strong>الإلهام والأفكار قبل أن تصبح واقع تصورات عمارة وديكور بلمسة سعودية</strong>
+          </p>
         </header>
         <nav className="social-stage" aria-label="حسابات Saudi800800 الرسمية">
           {links.map((link, index) => (

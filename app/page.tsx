@@ -13,16 +13,11 @@ const links: SocialLink[] = [
   { name: "X", href: "https://x.com/saudi800800", className: "x-social", icon: <svg {...iconProps}><path d="M14 12h11l10 14 12-14h5L38 30l14 22H41L30 37 17 52h-5l15-19L14 12Zm9 5 21 30h-5L18 17h5Z" fill="currentColor"/></svg> },
   { name: "بنترست", href: "https://www.pinterest.com/saudi800800", className: "pinterest", icon: <svg {...iconProps}><path d="M32 7C18.2 7 9 17 9 29.7c0 9.4 5.3 17.6 13.1 21.3-.2-1.8-.4-4.6.1-6.6l3-12.7s-.8-1.7-.8-4.2c0-3.9 2.3-6.9 5.1-6.9 2.4 0 3.6 1.8 3.6 4 0 2.4-1.5 6-2.3 9.3-.7 2.8 1.4 5.1 4.2 5.1 5 0 8.8-5.3 8.8-12.9 0-6.7-4.8-11.5-11.8-11.5-8 0-12.8 6-12.8 12.3 0 2.4.9 5 2.1 6.4.2.3.3.5.2.8l-.8 3.2c-.3 1-1 1.2-1.8.7-4.4-2-7.1-8.3-7.1-13.3C11.1 13.1 19 3.1 33.8 3.1 45.7 3.1 55 11.6 55 23c0 11.9-7.5 21.5-17.8 21.5-3.5 0-6.7-1.8-7.8-3.9l-2.1 8.1c-.8 3-2.9 6.7-4.3 9 3.3 1 6.7 1.6 10.3 1.6 13.8 0 23-10 23-22.7C56.3 17 45.8 7 32 7Z" fill="currentColor"/></svg> },
   { name: "فيسبوك", href: "https://www.facebook.com/saudi800800", className: "facebook", icon: <svg {...iconProps}><path d="M38 18h8V7c-2 0-6-1-10-1-10 0-16 6-16 17v9H10v12h10v20h12V44h11l2-12H32v-8c0-4 2-6 6-6Z" fill="currentColor"/></svg> },
-  { name: "يوتيوب", href: "https://www.youtube.com/@saudi800", className: "youtube", icon: <svg {...iconProps}><path d="M55 20c-1-4-4-7-8-8-4-1-26-1-30 0-4 1-7 4-8 8-1 4-1 20 0 24 1 4 4 7 8 8 4 1 26 1 30 0 4-1 7-4 8-8 1-4 1-20 0-24Z" fill="currentColor"/><path d="m27 41 16-9-16-9v18Z" fill="#fff"/></svg> },
+  { name: "يوتيوب", href: "https://www.youtube.com/@saudi800", className: "youtube", icon: <svg {...iconProps}><path d="M55 20c-1-4-4-7-8-8-4-1-26-1-30 0-4 1-7 4-8 8-1 4-1 20 0 24 1 4 4 7 8 8 4 1 26 1 30 0 4-1 7-4 8-8 1-4 1-20 0-24Z" fill="currentColor"/><path d="m27 41 16-9-16-9v18Z" fill="#ff1837"/></svg> },
 ];
 
 export default function Home() {
   const [shareStatus, setShareStatus] = useState<"idle" | "copied">("idle");
-
-  const openInNewPage = (url: string) => {
-    const newPage = window.open(url, "_blank", "noopener,noreferrer");
-    if (newPage) newPage.opener = null;
-  };
 
   const markAsCopied = () => {
     setShareStatus("copied");
@@ -95,10 +90,6 @@ export default function Home() {
               aria-label={`فتح حساب ${link.name} في صفحة جديدة`}
               title={link.name}
               style={{ "--order": index } as React.CSSProperties}
-              onClick={(event) => {
-                event.preventDefault();
-                openInNewPage(link.href);
-              }}
             >
               <span className="button-face"><span className="icon-face">{link.icon}</span></span>
               <span className="button-depth" aria-hidden="true" />

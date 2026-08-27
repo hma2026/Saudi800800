@@ -96,6 +96,18 @@ export default function Home() {
             </a>
           ))}
         </nav>
+        <section className="vision-copy" aria-label="عن محتوى Saudi800800">
+          <p>
+            مساحة بصرية تعرض تصوّرات لعمارة وديكور<br />
+            بلمسة سعودية — من فناء نجدي إلى واجهة حجازية،<br />
+            ومن مجلس عسيري إلى بيت ساحلي على الخليج.
+          </p>
+          <p>
+            كل ما تراه هنا تصوّر تصميمي مُنشأ بالذكاء الاصطناعي،<br />
+            لا صورة لمبنى قائم. الغاية إلهام صاحب البيت والمصمم والمقاول قبل أن ترتفع أول لبنة.
+          </p>
+          <p className="vision-signature"><strong>الإلهام والأفكار قبل أن تصبح واقع.</strong></p>
+        </section>
         <div className="share-area">
           <button className="share-button" type="button" onClick={sharePage} aria-live="polite">
             <svg viewBox="0 0 24 24" aria-hidden="true">

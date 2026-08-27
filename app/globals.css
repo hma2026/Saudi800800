@@ -19,7 +19,7 @@ a { color: inherit; }
 
 .experience { width: min(100%, 780px); text-align: center; perspective: 1200px; }
 .brand-object { position: relative; width: clamp(138px, 22vw, 174px); aspect-ratio: .9; margin: 0 auto 30px; transform-style: preserve-3d; transform-origin: center; animation: logo-pulse 6s ease-in-out infinite; }
-.brand-face { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; direction: ltr; overflow: hidden; border: 3px solid rgba(255,255,255,.92); border-radius: 32px; background: linear-gradient(145deg, rgba(20,111,85,.95), rgba(4,48,39,.97)); box-shadow: inset 2px 2px 0 rgba(255,255,255,.22), 0 0 0 rgba(229,185,79,0), 0 26px 55px rgba(0,0,0,.38); transform: translateZ(18px); animation: logo-gold-glow 4.8s ease-in-out infinite; }
+.brand-face { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; direction: ltr; overflow: hidden; border: 3px solid rgba(255,255,255,.92); border-radius: 32px; background: linear-gradient(145deg, rgba(20,111,85,.95), rgba(4,48,39,.97)); box-shadow: inset 2px 2px 0 rgba(255,255,255,.22), 0 0 8px rgba(229,185,79,.18), 0 0 20px rgba(229,185,79,.08), 0 26px 55px rgba(0,0,0,.38); transform: translateZ(18px); animation: logo-gold-glow 4.8s ease-in-out infinite; }
 .brand-face::after { content: ""; position: absolute; inset: 5px 8px auto; height: 45%; border-radius: 28px; background: linear-gradient(rgba(255,255,255,.18), transparent); }
 .brand-depth { position: absolute; right: 10px; bottom: -17px; left: 10px; height: 36px; border-radius: 0 0 28px 28px; background: linear-gradient(#04362b, #011c17); transform: rotateX(-76deg); transform-origin: top; box-shadow: 0 20px 32px rgba(0,0,0,.38); }
 .brand-saudi { z-index: 1; margin-bottom: 2px; font-size: clamp(27px, 4.6vw, 36px); font-weight: 900; line-height: 1; }
@@ -126,8 +126,8 @@ a { color: inherit; }
   50% { transform: scale(1.015); }
 }
 @keyframes logo-gold-glow {
-  0%, 100% { box-shadow: inset 2px 2px 0 rgba(255,255,255,.22), 0 0 0 rgba(229,185,79,0), 0 26px 55px rgba(0,0,0,.38); }
-  50% { box-shadow: inset 2px 2px 0 rgba(255,255,255,.22), 0 0 22px rgba(229,185,79,.55), 0 28px 58px rgba(0,0,0,.4); }
+  0%, 100% { box-shadow: inset 2px 2px 0 rgba(255,255,255,.22), 0 0 8px rgba(229,185,79,.18), 0 0 20px rgba(229,185,79,.08), 0 26px 55px rgba(0,0,0,.38); }
+  50% { box-shadow: inset 2px 2px 0 rgba(255,255,255,.24), 0 0 22px rgba(229,185,79,.9), 0 0 52px rgba(229,185,79,.48), 0 30px 62px rgba(0,0,0,.42); }
 }
 @keyframes rise-in { from { opacity: 0; transform: translateY(22px) translateZ(-20px) scale(.88); } to { opacity: 1; transform: translateY(0) translateZ(0) scale(1); } }
 @media (max-width: 600px) {

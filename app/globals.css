@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "../vendor/shadcn-tailwind-4.13.0.css";
+
+:root { --gold: #e5b94f; --cream: #fff9e9; }
+* { box-sizing: border-box; }
+html { min-width: 320px; background: #011914; }
+body { min-height: 100vh; margin: 0; color: var(--cream); font-family: Arial, "Segoe UI", Tahoma, sans-serif; }
+a { color: inherit; }
+
+.site-shell {
+  position: relative; isolation: isolate; display: grid; min-height: 100svh; place-items: center;
+  overflow: hidden; padding: 34px 18px 48px;
+  background: radial-gradient(circle at 50% 12%, #0b5a45 0%, #032b23 39%, #011813 76%);
+}
+.three-canvas { position: absolute; inset: 0; z-index: -3; }
+.three-canvas canvas { display: block; width: 100%; height: 100%; }
+.vignette { position: absolute; inset: 0; z-index: -2; pointer-events: none; background: radial-gradient(circle, transparent 30%, rgba(0,16,13,.55) 100%), linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.32)); }
+.site-shell::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .15; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E"); }
+
+.experience { width: min(100%, 780px); text-align: center; perspective: 1200px; }
+.brand-object { position: relative; width: clamp(138px, 22vw, 174px); aspect-ratio: .9; margin: 0 auto 30px; transform-style: preserve-3d; animation: float-logo 5s ease-in-out infinite; }
+.brand-face { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; direction: ltr; overflow: hidden; border: 3px solid rgba(255,255,255,.92); border-radius: 32px; background: linear-gradient(145deg, rgba(20,111,85,.95), rgba(4,48,39,.97)); box-shadow: inset 2px 2px 0 rgba(255,255,255,.22), 0 26px 55px rgba(0,0,0,.38); transform: translateZ(18px); }
+.brand-face::after { content: ""; position: absolute; inset: 5px 8px auto; height: 45%; border-radius: 28px; background: linear-gradient(rgba(255,255,255,.18), transparent); }
+.brand-depth { position: absolute; right: 10px; bottom: -17px; left: 10px; height: 36px; border-radius: 0 0 28px 28px; background: linear-gradient(#04362b, #011c17); transform: rotateX(-76deg); transform-origin: top; box-shadow: 0 20px 32px rgba(0,0,0,.38); }
+.brand-saudi { z-index: 1; margin-bottom: 2px; font-size: clamp(27px, 4.6vw, 36px); font-weight: 900; line-height: 1; }
+.brand-number { z-index: 1; font-size: clamp(40px, 6.5vw, 53px); font-weight: 900; line-height: .94; letter-spacing: .03em; }
+.brand-gold, .brand-copy h1 span { color: var(--gold); }
+.brand-copy h1 { margin: 0; direction: ltr; font-size: clamp(30px, 6.2vw, 50px); font-weight: 900; line-height: 1; letter-spacing: -.045em; text-shadow: 0 8px 24px rgba(0,0,0,.48); }
+.brand-copy p { margin: 10px 0 34px; color: rgba(255,249,233,.7); font-size: 15px; letter-spacing: .08em; }
+
+.social-stage { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(20px, 4.2vw, 34px); padding: clamp(28px, 4.8vw, 42px); direction: ltr; border: 1px solid rgba(255,255,255,.14); border-radius: 42px; background: linear-gradient(145deg, rgba(11,89,68,.5), rgba(1,26,21,.68)); box-shadow: inset 0 1px 0 rgba(255,255,255,.17), 0 38px 90px rgba(0,0,0,.46); backdrop-filter: blur(19px); transform: rotateX(3deg); transform-style: preserve-3d; }
+.social-stage::after { content: ""; position: absolute; right: 5%; bottom: -20px; left: 5%; height: 30px; border-radius: 0 0 32px 32px; background: linear-gradient(#04352a, #011713); transform: translateZ(-18px); box-shadow: 0 18px 35px rgba(0,0,0,.4); }
+.social-link { --top: #177a60; --bottom: #084634; --depth: #032f25; position: relative; z-index: 1; display: block; aspect-ratio: 1; color: white; transform-style: preserve-3d; animation: rise-in .65s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--order) * 55ms); transition: transform .22s cubic-bezier(.2,.8,.2,1), filter .22s ease; -webkit-tap-highlight-color: transparent; }
+.button-face { position: absolute; inset: 0; display: grid; place-items: center; overflow: hidden; border: 1px solid rgba(255,255,255,.28); border-radius: 29%; background: linear-gradient(145deg, var(--top), var(--bottom)); box-shadow: inset 2px 3px 1px rgba(255,255,255,.3), inset -3px -4px 1px rgba(0,0,0,.2), 0 18px 28px rgba(0,0,0,.26); transform: translateZ(15px); }
+.button-face::after { content: ""; position: absolute; inset: 5px 7px auto; height: 42%; border-radius: 45% 45% 55% 55%; opacity: .3; background: linear-gradient(white, transparent); }
+.button-depth { position: absolute; right: 8px; bottom: -15px; left: 8px; height: 30px; border-radius: 0 0 24px 24px; background: linear-gradient(var(--depth), #011a15); transform: rotateX(-82deg); transform-origin: top; box-shadow: 0 16px 22px rgba(0,0,0,.36); }
+.social-link:hover { z-index: 3; filter: saturate(1.16) brightness(1.08); transform: translateY(-13px) translateZ(45px) rotateX(-8deg) rotateY(5deg) scale(1.06); }
+.social-link:active { transform: translateY(5px) translateZ(7px) scale(.97); }
+.social-link:focus-visible { outline: 3px solid var(--gold); outline-offset: 8px; border-radius: 29%; }
+.icon-face { position: relative; z-index: 1; display: grid; width: 61%; aspect-ratio: 1; place-items: center; filter: drop-shadow(0 5px 3px rgba(0,0,0,.3)); }
+.icon-face svg { width: 100%; height: 100%; }
+.instagram { --top: #f85799; --bottom: #7845d6; --depth: #49267c; }
+.snapchat { --top: #fff940; --bottom: #efc900; --depth: #9b8200; }
+.snapchat .icon-face { filter: drop-shadow(0 0 1px #111) drop-shadow(0 5px 3px rgba(0,0,0,.24)); }
+.tiktok { --top: #292c32; --bottom: #050608; --depth: #000; }
+.tiktok .icon-face { filter: drop-shadow(3px 2px 0 #fe2c55) drop-shadow(-3px -2px 0 #25f4ee) drop-shadow(0 5px 3px rgba(0,0,0,.4)); }
+.x-social { --top: #30343a; --bottom: #050607; --depth: #000; }
+.pinterest, .youtube { --top: #ff2b47; --bottom: #c40021; --depth: #790014; }
+.facebook { --top: #2d82e9; --bottom: #1250a2; --depth: #092f63; }
+.youtube { grid-column: 2; }
+
+@keyframes float-logo { 0%,100% { transform: translateY(0) rotateY(-6deg) rotateX(-2deg); } 50% { transform: translateY(-12px) rotateY(7deg) rotateX(2deg); } }
+@keyframes rise-in { from { opacity: 0; transform: translateY(22px) translateZ(-20px) scale(.88); } to { opacity: 1; transform: translateY(0) translateZ(0) scale(1); } }
+@media (max-width: 600px) { .site-shell { padding: 25px 14px 38px; } .experience { width: min(100%, 470px); } .social-stage { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 22px; padding: 28px 22px 34px; border-radius: 32px; } .brand-copy p { margin-bottom: 27px; } .youtube { grid-column: 2; } }
+@media (max-width: 370px) { .social-stage { gap: 17px; padding-inline: 18px; } }
+@media (prefers-reduced-motion: reduce) { .brand-object, .social-link { animation: none; transition: none; } }

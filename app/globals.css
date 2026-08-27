@@ -1,12 +1,12 @@
 :root { --gold: #e5b94f; --cream: #fff9e9; }
 * { box-sizing: border-box; }
 html { min-width: 320px; background: #011914; }
-body { min-height: 100vh; margin: 0; color: var(--cream); font-family: Arial, "Segoe UI", Tahoma, sans-serif; }
+body { min-height: 100vh; margin: 0; overflow-x: hidden; color: var(--cream); font-family: Arial, "Segoe UI", Tahoma, sans-serif; }
 a { color: inherit; }
 
 .site-shell {
   position: relative; isolation: isolate; display: grid; min-height: 100svh; place-items: center;
-  overflow-x: hidden; overflow-y: auto; padding: 34px 18px 48px;
+  overflow-x: clip; padding: 34px 18px 34px;
   background: radial-gradient(circle at 50% 12%, #0b5a45 0%, #032b23 39%, #011813 76%);
 }
 .three-canvas { position: absolute; inset: 0; z-index: -3; }
@@ -41,50 +41,55 @@ a { color: inherit; }
   background: linear-gradient(180deg, #063a2e, #011c16); box-shadow: 0 14px 25px rgba(0,0,0,.3);
 }
 .social-link {
-  --accent: #fff; position: relative; z-index: 1; display: block; min-width: 0; aspect-ratio: 1.16 / 1;
-  color: var(--accent); transform-style: preserve-3d;
+  --brand-top: #195e4e; --brand-bottom: #07342b; --brand-depth: #021b16; --icon: #fff;
+  position: relative; z-index: 1; display: block; min-width: 0; aspect-ratio: 1.16 / 1;
+  color: var(--icon); transform-style: preserve-3d;
   animation: rise-in .65s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--order) * 55ms);
   transition: transform .24s cubic-bezier(.2,.8,.2,1), filter .24s ease; -webkit-tap-highlight-color: transparent;
 }
 .button-face {
   position: absolute; inset: 0; z-index: 2; display: grid; place-items: center; overflow: hidden;
-  border: 1px solid rgba(229,185,79,.72); border-radius: clamp(14px, 1.6vw, 20px);
-  background: linear-gradient(145deg, rgba(17,65,54,.98) 0%, rgba(5,37,31,.99) 52%, rgba(2,24,20,1) 100%);
-  box-shadow: inset 1px 1px 0 rgba(255,255,255,.16), inset -2px -3px 5px rgba(0,0,0,.32), 0 12px 24px rgba(0,0,0,.28);
+  border: 1px solid rgba(239,203,106,.82); border-radius: clamp(14px, 1.6vw, 20px);
+  background: linear-gradient(145deg, var(--brand-top) 0%, var(--brand-bottom) 100%);
+  box-shadow: inset 1px 2px 0 rgba(255,255,255,.28), inset -2px -4px 6px rgba(0,0,0,.28), 0 12px 24px rgba(0,0,0,.3);
   transform: translateZ(8px);
 }
 .button-face::before {
-  content: ""; position: absolute; inset: 1px 4px auto; height: 38%; border-radius: inherit;
-  background: linear-gradient(180deg, rgba(255,255,255,.12), transparent); pointer-events: none;
+  content: ""; position: absolute; inset: 2px 5px auto; height: 42%; border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255,255,255,.2), transparent); opacity: .72; pointer-events: none;
 }
 .button-face::after {
-  content: ""; position: absolute; width: 70%; height: 70%; border-radius: 50%;
-  background: radial-gradient(circle, color-mix(in srgb, var(--accent) 20%, transparent), transparent 68%);
-  opacity: .55; filter: blur(7px); pointer-events: none;
+  content: ""; position: absolute; inset: auto 12% 7%; height: 18%; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(0,0,0,.2), transparent 70%); filter: blur(4px); pointer-events: none;
 }
 .button-depth {
   position: absolute; inset: 7px 4px -9px; z-index: 0; border-radius: clamp(14px, 1.6vw, 20px);
-  border: 1px solid rgba(229,185,79,.28);
-  background: linear-gradient(180deg, #82682a 0%, #4d3912 38%, #171006 100%);
-  box-shadow: 0 14px 19px rgba(0,0,0,.38); transform: translateZ(-5px);
+  border: 1px solid rgba(229,185,79,.32); background: linear-gradient(180deg, var(--brand-depth), #160f06 100%);
+  box-shadow: 0 14px 19px rgba(0,0,0,.4); transform: translateZ(-5px);
 }
-.social-link:hover { z-index: 3; filter: brightness(1.1); transform: translateY(-9px) translateZ(28px) rotateX(-5deg) scale(1.035); }
+.social-link:hover { z-index: 3; filter: brightness(1.09) saturate(1.08); transform: translateY(-9px) translateZ(28px) rotateX(-5deg) scale(1.035); }
 .social-link:active { transform: translateY(3px) translateZ(4px) scale(.98); }
 .social-link:focus-visible { outline: 3px solid var(--gold); outline-offset: 7px; border-radius: 20px; }
 .icon-face {
-  position: relative; z-index: 3; display: grid; width: 50%; aspect-ratio: 1; place-items: center;
-  filter: drop-shadow(0 5px 4px rgba(0,0,0,.5));
+  position: relative; z-index: 3; display: grid; width: 68%; aspect-ratio: 1; place-items: center;
+  filter: drop-shadow(0 6px 5px rgba(0,0,0,.38));
 }
 .icon-face svg { width: 100%; height: 100%; }
-.instagram { --accent: #f14d91; }
-.snapchat { --accent: #ffdf23; }
-.snapchat .icon-face { filter: drop-shadow(0 0 1px #000) drop-shadow(0 5px 4px rgba(0,0,0,.45)); }
-.tiktok { --accent: #fff; }
-.tiktok .icon-face { filter: drop-shadow(2px 1px 0 #fe2c55) drop-shadow(-2px -1px 0 #25f4ee) drop-shadow(0 5px 4px rgba(0,0,0,.55)); }
-.x-social { --accent: #fff; }
-.pinterest { --accent: #e60023; }
-.facebook { --accent: #4b92f3; }
-.youtube { --accent: #ff1837; }
+.instagram { --brand-top: #ff4f83; --brand-bottom: #7b3bc4; --brand-depth: #3e176b; --icon: #fff; }
+.instagram .button-face { background: radial-gradient(circle at 30% 105%, #ffd86f 0 19%, #ff6b55 33%, #d93f91 52%, #7b3bc4 76%, #414bd1 100%); }
+.instagram .icon-face { width: 65%; }
+.snapchat { --brand-top: #fff45a; --brand-bottom: #f0cf00; --brand-depth: #877100; --icon: #fff; }
+.snapchat .icon-face { width: 64%; filter: drop-shadow(0 0 2px #111) drop-shadow(0 6px 4px rgba(0,0,0,.32)); }
+.tiktok { --brand-top: #282b31; --brand-bottom: #040507; --brand-depth: #000; --icon: #fff; }
+.tiktok .icon-face { width: 66%; filter: drop-shadow(3px 2px 0 #fe2c55) drop-shadow(-3px -2px 0 #25f4ee) drop-shadow(0 6px 4px rgba(0,0,0,.5)); }
+.x-social { --brand-top: #30343a; --brand-bottom: #050607; --brand-depth: #000; --icon: #fff; }
+.x-social .icon-face { width: 66%; }
+.pinterest { --brand-top: #ff3047; --brand-bottom: #bd001c; --brand-depth: #6e0010; --icon: #fff; }
+.pinterest .icon-face { width: 65%; }
+.facebook { --brand-top: #4c9af0; --brand-bottom: #1454ad; --brand-depth: #082d64; --icon: #fff; }
+.facebook .icon-face { width: 64%; }
+.youtube { --brand-top: #ff344e; --brand-bottom: #cf001f; --brand-depth: #730011; --icon: #fff; }
+.youtube .icon-face { width: 80%; }
 
 .share-area { display: flex; justify-content: center; margin-top: 30px; }
 .share-button {
@@ -103,12 +108,11 @@ a { color: inherit; }
 @keyframes float-logo { 0%,100% { transform: translateY(0) rotateY(-6deg) rotateX(-2deg); } 50% { transform: translateY(-12px) rotateY(7deg) rotateX(2deg); } }
 @keyframes rise-in { from { opacity: 0; transform: translateY(22px) translateZ(-20px) scale(.88); } to { opacity: 1; transform: translateY(0) translateZ(0) scale(1); } }
 @media (max-width: 600px) {
-  .site-shell { padding: 25px 12px 40px; }
+  .site-shell { padding: 25px 12px 28px; }
   .experience { width: min(100%, 470px); }
   .social-stage { grid-template-columns: repeat(4, minmax(0,1fr)); gap: 11px 9px; padding: 18px 13px 24px; border-radius: 25px; }
   .button-face, .button-depth { border-radius: 15px; }
-  .icon-face { width: 54%; }
-  .brand-copy .official-label { margin-bottom: 15px; }
+    .brand-copy .official-label { margin-bottom: 15px; }
   .brand-tagline { margin-bottom: 27px; padding: 15px 17px 16px; font-size: clamp(17px, 5.1vw, 21px); line-height: 1.65; border-radius: 18px; }
   .share-area { margin-top: 26px; padding-inline: 12px; }
   .share-button { width: min(100%, 290px); min-width: 0; }

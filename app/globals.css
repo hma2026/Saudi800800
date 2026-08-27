@@ -1,7 +1,3 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-@import "../vendor/shadcn-tailwind-4.13.0.css";
-
 :root { --gold: #e5b94f; --cream: #fff9e9; }
 * { box-sizing: border-box; }
 html { min-width: 320px; background: #011914; }

@@ -34,16 +34,29 @@ body {
   width: 68%;
 }
 
-/* Nine official channels: balanced 3 x 3 layout on phones. */
-@media (min-width: 601px) {
+/* Twelve official channels, with platform colours and large SVG marks. */
+.threads { --brand-top: #30343a; --brand-bottom: #050607; --brand-depth: #000; --icon: #fff; }
+.bluesky { --brand-top: #42a5ff; --brand-bottom: #0866dd; --brand-depth: #053b83; --icon: #fff; }
+.reddit { --brand-top: #ff743d; --brand-bottom: #e53e00; --brand-depth: #8a2700; --icon: #fff; }
+.threads .icon-face { width: 62%; }
+.bluesky .icon-face { width: 68%; }
+.reddit .icon-face { width: 64%; }
+
+/* One row on desktop; two rows on tablets; three rows on phones. */
+@media (min-width: 901px) {
+  .experience { width: min(100%, 1180px); }
+  .social-stage { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: clamp(10px, 1.2vw, 16px); }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
   .social-stage {
-    grid-template-columns: repeat(9, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 600px) {
   .social-stage {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 12px 10px;
   }
 }
